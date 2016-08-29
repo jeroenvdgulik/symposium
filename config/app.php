@@ -156,6 +156,7 @@ return [
         'App\Providers\OAuthGuardServiceProvider',
         App\Providers\CaptchaServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Indal\Markdown\MarkdownServiceProvider::class,
     ],
 
     /*
@@ -209,6 +210,7 @@ return [
         'Slack'     => 'Maknz\Slack\Facades\Slack',
         'Authorizer' => 'LucaDegasperi\OAuth2Server\Facades\AuthorizerFacade',
         'Image'     => Intervention\Image\Facades\Image::class,
+        'Markdown' => Indal\Markdown\Facade::class,
     ],
 
 ];

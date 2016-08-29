@@ -28,6 +28,11 @@ class TalkRevision extends UuidBase
         return '/talks/' . $this->talk->id . '/?revision=' . $this->id;
     }
 
+    public function getDescription()
+    {
+        return $this->htmlize($this->getAttribute('description'), false);
+    }
+
     public function getHtmledDescription()
     {
         return $this->htmlize($this->getAttribute('description'));
@@ -38,12 +43,12 @@ class TalkRevision extends UuidBase
         return $this->htmlize($this->getAttribute('organizer_notes'));
     }
 
-    private function htmlize($string)
+    private function htmlize($string, $changeNewLineToBR = true)
     {
         if ($string == '') {
             return '<i>(empty)</i>';
         }
 
-        return str_replace("\n", "<br>", $string);
+        return $changeNewLineToBR ? str_replace("\n", "<br>", $string) : $string;
     }
 }
